@@ -43,6 +43,7 @@
   #define XSOCKET_INVALID INVALID_SOCKET
   #define XSOCKET_ERROR SOCKET_ERROR
   typedef SOCKET xsocket;
+  typedef int xsocklen_t;
 #else
   #define XSHUT_RECV SHUT_RD
   #define XSHUT_SEND SHUT_WR
@@ -50,6 +51,7 @@
   #define XSOCKET_INVALID -1
   #define XSOCKET_ERROR -1
   typedef int xsocket;
+  typedef socklen_t xsocklen_t;
 #endif
 
 int xstartup();
