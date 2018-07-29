@@ -32,6 +32,10 @@
   #include <netdb.h>
 #endif
 
+#ifdef XWIN32
+  #pragma comment(lib, "Ws2_32.lib") // tell linker to link winsock library.
+#endif
+
 // implementations goes here.
 
 #ifdef __cplusplus
