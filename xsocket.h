@@ -57,6 +57,8 @@
 int xstartup();
 int xcleanup();
 
+xsocket_t xsocket(int, int, int);
+
 // implementations goes here.
 
 #ifdef __cplusplus

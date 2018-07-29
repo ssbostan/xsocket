@@ -33,6 +33,10 @@ int xcleanup() {
   #endif
 }
 
+xsocket_t xsocket(int domain, int type, int protocol) {
+  return socket(domain, type, protocol);
+}
+
 // implementations goes here.
 
 #ifdef __cplusplus
