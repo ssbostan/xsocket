@@ -56,6 +56,7 @@
 
 int xstartup();
 int xcleanup();
+int xclose(xsocket_t);
 
 xsocket_t xsocket(int, int, int);
 

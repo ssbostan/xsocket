@@ -33,6 +33,14 @@ int xcleanup() {
   #endif
 }
 
+int xclose(xsocket_t socket) {
+  #ifdef XWIN32
+    return closesocket(socket); // close socket on windows.
+  #else
+    return close(socket);
+  #endif
+}
+
 xsocket_t xsocket(int domain, int type, int protocol) {
   return socket(domain, type, protocol);
 }
