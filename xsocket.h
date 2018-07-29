@@ -36,6 +36,22 @@
   #pragma comment(lib, "Ws2_32.lib") // tell linker to link winsock library.
 #endif
 
+#ifdef XWIN32
+  #define XSHUT_RECV SD_RECEIVE
+  #define XSHUT_SEND SD_SEND
+  #define XSHUT_BOTH SD_BOTH
+  #define XSOCKET_INVALID INVALID_SOCKET
+  #define XSOCKET_ERROR SOCKET_ERROR
+  typedef SOCKET xsocket;
+#else
+  #define XSHUT_RECV SHUT_RD
+  #define XSHUT_SEND SHUT_WR
+  #define XSHUT_BOTH SHUT_RDWR
+  #define XSOCKET_INVALID -1
+  #define XSOCKET_ERROR -1
+  typedef int xsocket;
+#endif
+
 // implementations goes here.
 
 #ifdef __cplusplus
