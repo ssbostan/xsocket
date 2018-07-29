@@ -52,6 +52,9 @@
   typedef int xsocket;
 #endif
 
+int xstartup();
+int xcleanup();
+
 // implementations goes here.
 
 #ifdef __cplusplus

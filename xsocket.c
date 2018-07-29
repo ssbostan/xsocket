@@ -16,6 +16,23 @@
 
 #include "xsocket.h"
 
+int xstartup() {
+  #ifdef XWIN32
+    WSADATA wsadata;
+    return WSAStartup(MAKEWORD(2, 2), &wsadata); // for using winsock version 2.2 on windows.
+  #else
+    return 0;
+  #endif
+}
+
+int xcleanup() {
+  #ifdef XWIN32
+    return WSACleanup(); // terminates use of winsock library on windows.
+  #else
+    return 0;
+  #endif
+}
+
 // implementations goes here.
 
 #ifdef __cplusplus
