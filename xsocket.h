@@ -44,6 +44,9 @@
   #define XSOCKET_ERROR SOCKET_ERROR
   typedef SOCKET xsocket_t;
   typedef int xsocklen_t;
+  typedef char xsockopt_t;
+  typedef char xsockdata_t;
+  typedef int xsize_t;
 #else
   #define XSHUT_RECV SHUT_RD
   #define XSHUT_SEND SHUT_WR
@@ -52,6 +55,9 @@
   #define XSOCKET_ERROR -1
   typedef int xsocket_t;
   typedef socklen_t xsocklen_t;
+  typedef void xsockopt_t;
+  typedef void xsockdata_t;
+  typedef size_t xsize_t;
 #endif
 
 int xstartup();
