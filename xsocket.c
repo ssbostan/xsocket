@@ -41,6 +41,10 @@ int xclose(xsocket_t socket) {
   #endif
 }
 
+xsocket_t xaccept(xsocket_t socket, struct sockaddr *addr, xsocklen_t *addr_len) {
+  return accept(socket, addr, addr_len);
+}
+
 xsocket_t xsocket(int domain, int type, int protocol) {
   return socket(domain, type, protocol);
 }

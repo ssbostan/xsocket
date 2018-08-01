@@ -58,6 +58,7 @@ int xstartup();
 int xcleanup();
 int xclose(xsocket_t);
 
+xsocket_t xaccept(xsocket_t, struct sockaddr*, xsocklen_t*);
 xsocket_t xsocket(int, int, int);
 
 // implementations goes here.
