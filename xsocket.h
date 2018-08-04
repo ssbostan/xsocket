@@ -30,6 +30,7 @@
   #include <arpa/inet.h>
   #include <netinet/in.h>
   #include <netdb.h>
+  #include <errno.h>
 #endif
 
 #ifdef XWIN32
@@ -63,6 +64,7 @@
 int xstartup();
 int xcleanup();
 int xclose(xsocket_t);
+int xerror();
 
 xsocket_t xaccept(xsocket_t, struct sockaddr*, xsocklen_t*);
 xsocket_t xsocket(int, int, int);

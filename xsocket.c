@@ -41,6 +41,14 @@ int xclose(xsocket_t socket) {
   #endif
 }
 
+int xerror() {
+  #ifdef XWIN32
+    return WSAGetLastError(); // socket errors on windows.
+  #else
+    return errno; // socket errors on posix.
+  #endif
+}
+
 xsocket_t xaccept(xsocket_t socket, struct sockaddr *addr, xsocklen_t *addr_len) {
   return accept(socket, addr, addr_len);
 }
