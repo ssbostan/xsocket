@@ -38,6 +38,12 @@
 #endif
 
 #ifdef XWIN32
+  #define XERROR(E) WSA##E // for WSA socket errors on windows.
+#else
+  #define XERROR(E) E // cross-platform method for handling socket errors.
+#endif
+
+#ifdef XWIN32
   #define XSHUT_RECV SD_RECEIVE
   #define XSHUT_SEND SD_SEND
   #define XSHUT_BOTH SD_BOTH
