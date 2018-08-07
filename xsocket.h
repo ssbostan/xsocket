@@ -31,6 +31,7 @@
   #include <netinet/in.h>
   #include <netdb.h>
   #include <errno.h>
+  #include <fcntl.h>
 #endif
 
 #ifdef XWIN32
@@ -69,6 +70,7 @@
 
 int xstartup();
 int xcleanup();
+int xblocking(xsocket_t, int);
 int xclose(xsocket_t);
 int xerror();
 

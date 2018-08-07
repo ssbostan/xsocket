@@ -33,6 +33,19 @@ int xcleanup() {
   #endif
 }
 
+int xblocking(xsocket_t socket, int mode) {
+  #ifdef XWIN32
+    unsigned long blocking;
+    blocking=mode ? 0 : 1;
+    return ioctlsocket(socket, FIONBIO, &blocking);
+  #else
+    int flags;
+    flags=fcntl(socket, F_GETFL);
+    flags=mode ? flags & ~O_NONBLOCK : flags | O_NONBLOCK;
+    return fcntl(socket, F_SETFL, flags);
+  #endif
+}
+
 int xclose(xsocket_t socket) {
   #ifdef XWIN32
     return closesocket(socket); // close socket on windows.
