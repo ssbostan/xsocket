@@ -19,12 +19,12 @@ xsocket.o: xsocket.c
 .PHONY: install
 install:
 	cp $(SONAME) $(LIBDIR)
-	ln -s $(LIBDIR)/$(SONAME) $(LIB64DIR)/$(SONAME)
+	[ -d $(LIB64DIR) ] && ln -s $(LIBDIR)/$(SONAME) $(LIB64DIR)/$(SONAME)
 	cp xsocket.h $(INCLUDEDIR)
 
 .PHONY: uninstall
 uninstall:
-	rm -f $(LIB64DIR)/$(SONAME)
+	[ -d $(LIB64DIR) ] && rm -f $(LIB64DIR)/$(SONAME)
 	rm -f $(LIBDIR)/$(SONAME)
 	rm -f $(INCLUDEDIR)/xsocket.h
 
